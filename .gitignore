@@ -1,5 +1,7 @@
 *.swp
 *.py[co]
+MANIFEST
 
+.tox/
 build/
 dist/
