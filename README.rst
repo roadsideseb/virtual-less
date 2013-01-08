@@ -44,6 +44,6 @@ request with your changes. I'd be happy to include them.
 License
 -------
 
-Oscar is released under the permissive `New BSD license`_.
+This package is released under the permissive `New BSD license`_.
 
 .. _`New BSD license`: https://github.com/elbaschid/virtual-less/blob/master/LICENSE
