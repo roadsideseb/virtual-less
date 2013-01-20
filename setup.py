@@ -9,7 +9,7 @@ from distutils.core import setup
 
 current_dir = os.getcwd()
 
-less_zip = urlopen("https://github.com/cloudhead/less.js/zipball/master")
+less_zip = urlopen("https://github.com/cloudhead/less.js/archive/v1.3.3.zip")
 less_dir = zipfile.ZipFile(StringIO(less_zip.read()))
 
 for entry in less_dir.namelist():
@@ -34,7 +34,7 @@ for info in less_dir.infolist():
 
 setup(
     name='virtual-less',
-    version='0.0.1a',
+    version='0.0.1-1.3.3',
     description='Install lessc into your virtualenv',
     author='Sebastian Vetter',
     author_email='sebastian@roadside-developer.com',
