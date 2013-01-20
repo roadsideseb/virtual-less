@@ -1,6 +1,9 @@
 virtual-less
 ============
 
+.. image:: https://secure.travis-ci.org/elbaschid/virtual-less.png
+    :target: http://travis-ci.org/#!/elbaschid/virtual-less
+
 This is a small package that installs the `less`_ compiler for CSS
 into you virtual environment without the need of a global installation
 or the node package manager. The package is based on `python-less`_ and
