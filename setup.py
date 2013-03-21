@@ -5,9 +5,9 @@ import json
 import shutil
 import zipfile
 
-from cStringIO import StringIO
 from urllib2 import urlopen
-from distutils.core import setup
+from setuptools import setup
+from cStringIO import StringIO
 
 BASE_URL = "https://github.com/cloudhead/less.js"
 DEFAULT_VERSION = '1.3.3'
