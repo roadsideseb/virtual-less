@@ -4,7 +4,6 @@ python:
   - 2.7
 env:
   - SETUP_COMMAND="install"
-  - SETUP_COMMAND="build"
 install:
   - python setup.py $SETUP_COMMAND
 script:
