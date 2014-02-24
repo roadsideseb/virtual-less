@@ -10,7 +10,7 @@ from setuptools import setup
 from cStringIO import StringIO
 
 BASE_URL = "https://github.com/cloudhead/less.js"
-DEFAULT_VERSION = '1.6.2'
+DEFAULT_VERSION = os.getenv('LESS_VERSION', '1.6.2')
 PROJECT_DIR = os.environ.get('PROJECT_DIR')
 
 
