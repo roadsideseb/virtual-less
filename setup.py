@@ -9,10 +9,13 @@ from urllib2 import urlopen
 from setuptools import setup
 from cStringIO import StringIO
 
-BASE_URL = "https://github.com/cloudhead/less.js"
-DEFAULT_VERSION = os.getenv('LESS_VERSION', '1.6.2')
+BASE_URL = "https://github.com/less/less.js"
+DEFAULT_VERSION = os.getenv('LESS_VERSION', '2.5.0')
 PROJECT_DIR = os.environ.get('PROJECT_DIR')
 
+# Force node version
+# (https://github.com/elbaschid/virtual-node#install-specific-version-of-node)
+os.environ["NODE_VERSION"] = "0.12.2"
 
 def get_version():
     if not PROJECT_DIR:
@@ -28,7 +31,7 @@ def get_version():
             return version.replace('==', '')
     return DEFAULT_VERSION
 
-
+env_path = os.getenv('VIRTUAL_ENV')
 less_zip = urlopen("%s/archive/v%s.zip" % (BASE_URL, get_version()))
 less_dir = zipfile.ZipFile(StringIO(less_zip.read()))
 
@@ -48,11 +51,10 @@ bin_dir = os.path.join(root_dir, 'bin')
 for info in less_dir.infolist():
     if info.filename.startswith(lib_dir) and info.filename.endswith('.js'):
         path = '/'.join(info.filename.split('/')[1:-1])
-        data_files.append((path, [info.filename]))
+        data_files.append((os.path.join(env_path, path), [info.filename]))
 
     elif info.filename.startswith(bin_dir) and os.path.isfile(info.filename):
         scripts.append(info.filename)
-
 
 setup(
     name='virtual-less',
@@ -74,7 +76,7 @@ setup(
         'Topic :: Software Development :: Libraries',
     ],
     install_requires=[
-        'virtual-node>=0.0.3',
+        'virtual-node>=0.1.0',
     ],
     license='BSD',
     scripts=scripts,
