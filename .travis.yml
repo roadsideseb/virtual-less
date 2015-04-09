@@ -5,6 +5,7 @@ python:
 env:
   - SETUP_COMMAND="install"
 install:
+  - pip install pip==1.5.6
   - python setup.py $SETUP_COMMAND
 script:
   - python simple_test.py
